@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahndongjin.ahndongjin.mappers.TeamMapper">
+	<select id="getSubjectList"
+		resultType="com.ahndongjin.ahndongjin.domain.Subject">
+		select * from Subject where team_id=#{team_id}
+	</select>
+	<select id="getMemberId" resultType="int">
+		select user_id from Member
+		where team_id = #{team_id}
+	</select>
+	<select id="getMemberAvatar"
+		resultType="com.ahndongjin.ahndongjin.domain.Avatar">
+		select * from Avatar where user_id in (select user_id from
+		member where team_id=#{team_id})
+	</select>
+	<select id="getQuest" resultType="com.ahndongjin.ahndongjin.domain.Quest">
+		select * from Quest where id=#{quest_id}
+	</select>
+</mapper>
