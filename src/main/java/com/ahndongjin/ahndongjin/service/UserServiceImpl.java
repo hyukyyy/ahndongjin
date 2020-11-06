@@ -1,6 +1,7 @@
 package com.ahndongjin.ahndongjin.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,18 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public Avatar getAvatar(int user_id) {
 		return this.userRepository.getAvatar(user_id);
+	}
+
+	@Override
+	public void delQuest(int quest_id) {
+		// TODO Auto-generated method stub
+		this.userRepository.delQuest(quest_id);
+	}
+
+	@Override
+	public void setQuest(HashMap<String, Object> updateMap) {
+		// TODO Auto-generated method stub
+		this.userRepository.setQuest(updateMap);
 	}
 	
 

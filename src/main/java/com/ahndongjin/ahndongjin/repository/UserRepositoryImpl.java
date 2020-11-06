@@ -1,6 +1,7 @@
 package com.ahndongjin.ahndongjin.repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -46,6 +47,18 @@ public class UserRepositoryImpl implements UserRepository{
 	public Avatar getAvatar(int user_id) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(namespace+".getAvatar",user_id);
+	}
+
+	@Override
+	public int delQuest(int quest_id) {
+		// TODO Auto-generated method stub
+		return sqlSession.delete(namespace+".delQuest",quest_id);
+	}
+
+	@Override
+	public int setQuest(HashMap<String, Object> updateMap) {
+		// TODO Auto-generated method stub
+		return sqlSession.update(namespace+".setQuest",updateMap);
 	};
 	
 

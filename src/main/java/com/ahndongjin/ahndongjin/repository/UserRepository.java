@@ -1,6 +1,7 @@
 package com.ahndongjin.ahndongjin.repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -14,4 +15,7 @@ public interface UserRepository {
 	public String getEmail(int user_id);
 	public List<Quest> getQuest(int user_id);
 	public Avatar getAvatar(int user_id);
+	
+	public int delQuest(int quest_id);
+	public int setQuest(HashMap<String, Object> updateMap);
 }

@@ -18,4 +18,13 @@
 		resultType="com.ahndongjin.ahndongjin.domain.Quest">
 		select * from Quest where user_id = #{user_id}
 	</select>
+	<update id="setQuest" parameterType="hashmap">
+		update Quest
+		set content=#{quest_content}
+		where id=#{quest_id}
+	</update>
+	<delete id="delQuest" parameterType="int">
+		delete from Quest
+		where id=#{quest_id}
+	</delete>	
 </mapper>

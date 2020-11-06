@@ -112,7 +112,7 @@
 								<div class="list-group">
 									<c:forEach var="quest" items="${quest_each}" begin="0" step="1"
 										varStatus="status">
-										<a href="#" class="list-group-item">${quest.title} <span
+										<a href="http://localhost:8080/ahndongjin/questpage?id=${quest.id}" class="list-group-item">${quest.title} <span
 											class="badge">${quest.complete}</span></a>
 									</c:forEach>
 								</div>

@@ -1,6 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
-	session="false"%>
+	session="false" import="java.util.*"%>
+<%request.setCharacterEncoding("UTF-8");%>
+
+
+출처: https://fruitdev.tistory.com/64 [과일가게 개발자]
 
 <html>
 <head>
@@ -78,8 +82,8 @@
 				</button>
 				<p class="description-title">${quest.title}</p>
 				<p class="description-text">${quest.content}</p>
-				<span class="description-user">${user.name}</span> 
-				<span class="description-date">${quest.startDate}</span>
+				<span class="description-user">${user.name}</span> <span
+					class="description-date">${quest.startDate}</span>
 
 				<hr>
 				<div class="description-content">
@@ -123,19 +127,22 @@
 							<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
 						</button>
 					</div>
-					<div class="description-content-input">
-						<textarea class="form-control" rows="20"></textarea>
-					</div>
-					<div class="btn-group2">
-						<button type="button" class="btn btn-primary pull-right">저장하기</button>
-					</div>
-
+					<form action="/ahndongjin/update?id=${quest.id}" method="post" accept-charset="UTF-8">
+						<div class="description-content-input">
+							<textarea name="quest_content" class="form-control" rows="20">${quest.content}</textarea>
+						</div>
+						<div class="btn-group2">
+							<input type="submit" value="저장" class="btn btn-primary pull-right">
+							 <a
+								href="/ahndongjin/delete?id=${quest.id}"><button
+									type="button" class="btn btn-primary pull-right">삭제</button></a>
+						</div>
+					</form>
 				</div>
-
-
 			</div>
 		</div>
 	</div>
+
 
 	<!-- Bootstrap core JavaScript
     ================================================== -->
@@ -144,5 +151,6 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script
 		src="${pageContext.servletContext.contextPath}/resources/js/bootstrap.min.css"></script>
+
 </body>
 </html>
