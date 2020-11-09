@@ -32,6 +32,14 @@ public class TeamController {
 	@Qualifier("teamService")
 	private TeamServiceImpl teamservice;
 	
+	
+	@RequestMapping(value="/")
+	public String home(Locale locale, Model model) {
+		
+		return "home";
+	}
+
+	
 
 	@RequestMapping(value="/teampage",method=RequestMethod.GET)
 	public String teamPage(@RequestParam("id") int team_id,Locale locale, Model model) {
@@ -74,7 +82,7 @@ public class TeamController {
 		
 		System.out.println("삭제 완료다 십덕아");
 		
-		return "redirect : /ahndongjin/teampage?id=1";
+		return "redirect:/ahndongjin/teampage?id=1";
 	}
 
 	@RequestMapping(value="/update",method=RequestMethod.POST)
